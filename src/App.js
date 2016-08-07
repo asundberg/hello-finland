@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import { Navbar, Jumbotron, Button } from 'react-bootstrap';
 import './App.css';
+import contents from './idea';
+import QA from './QA';
+
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <h1 className="App-name">DOES FINLAND EXIST?!?</h1>
+          <p className="tagline">Two truths and one lie about Finland</p>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <p>blurb here and then button, and when you click it, the below QA would be displayed.</p>
+        <QA></QA>
       </div>
     );
   }
