@@ -9,24 +9,21 @@ class QA extends Component {
     super();
     this.state = {
       currentQuObj: contents[0],
-      feedbackText: '',
-      feedbackColor: null,
-      nextButton: ''
+      nextButton: 'SKIP!'
     }
   }
-  onAnswered (lie, feedback) {
-    if (lie) {
-      this.setState({feedbackColor: 'feedback-correct', feedbackText: feedback});
-    } else {
-      this.setState({feedbackColor: 'feedback-incorrect', feedbackText: feedback});
-    }
+  onAnswered (lie) {
+    // if (lie) {
+    //   score += 1;
+    // }
+    this.setState({nextButton: 'NEXT!'});
   }
   onNext () {
     const currentIndex = contents.indexOf(this.state.currentQuObj) + 1;
     this.setState({
       currentQuObj: contents[currentIndex],
-      feedbackText: '',
-      feedbackColor: null});
+      nextButton: 'SKIP!'
+    });
   }
   render () {
     return (
@@ -34,9 +31,9 @@ class QA extends Component {
         <h2 className="Game">
           <Question text={this.state.currentQuObj.question}></Question>
         </h2>
-        <button onClick={this.onNext.bind(this)}>{NEXT!}</button>
+        <button onClick={this.onNext.bind(this)}>{this.state.nextButton}</button>
         <p></p>
-        {this.state.currentQuObj.answers.map(answerObj => <Answer text={answerObj.answer} lie={answerObj.lie} feedback={this.state.feedbackText} callOnAnswered={this.onAnswered.bind(this)} feedbackColor={this.state.feedbackColor}></Answer>)}
+        {this.state.currentQuObj.answers.map(answerObj => <Answer text={answerObj.answer} lie={answerObj.lie} feedback={answerObj.feedback} key={answerObj.answer} callOnAnswered={this.onAnswered.bind(this)}></Answer>)}
       </div>
     );
   }

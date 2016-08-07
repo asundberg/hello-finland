@@ -5,12 +5,17 @@ class Answer extends Component {
   constructor () {
     super();
     this.state = {
-      feedback: null
+      feedbackColor: '',
+      feedbackText: ''
     }
   }
   onAnswerBtnClicked () {
-    this.props.callOnAnswered(this.props.lie, this.props.feedback);
-
+    this.props.callOnAnswered(this.props.lie);
+    if (this.props.lie) {
+      this.setState({feedbackColor: 'feedback-correct', feedbackText: this.props.feedback});
+    } else {
+      this.setState({feedbackColor: 'feedback-incorrect', feedbackText: this.props.feedback});
+    }
   }
   render () {
     return (
@@ -19,7 +24,7 @@ class Answer extends Component {
         <div>
           <button onClick={this.onAnswerBtnClicked.bind(this)}>This is a lie</button>
         </div>
-        <div className={this.props.feedbackColor}>{this.props.feedback}</div>
+        <div className={this.state.feedbackColor}>{this.state.feedbackText}</div>
       </div>
     );
   }
