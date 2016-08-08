@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 
 class Answer extends Component {
   constructor () {
@@ -18,9 +17,18 @@ class Answer extends Component {
     }
   }
   render () {
+    let answerText;
+    let answerImg;
+    if (this.props.text) {
+      answerText = <div>{this.props.text}</div>;
+    }
+    if (this.props.image) {
+      answerImg = <img className="image" src={this.props.image}/>
+    }
     return (
       <div className="Answer well col-md-4">
-        <div>{this.props.text}</div>
+        {answerText}
+        {answerImg}
         <div>
           <button onClick={this.onAnswerBtnClicked.bind(this)}>This is a lie</button>
         </div>

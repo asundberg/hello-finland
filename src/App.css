@@ -3,7 +3,7 @@
 }
 
 .App-header {
-  background-image: url("./images/saimaa.jpg");
+  background-image: url('./images/saimaa.jpg');
   background-size: cover;
   background-position: center;
   height: 250px;
@@ -20,6 +20,10 @@
   padding: 40px;
 }
 
+.warning {
+  color: red;
+}
+
 .Game {
   font-size: large;
   padding-top: 20px;
@@ -31,6 +35,7 @@
 
 .Answer {
   font-size: 17px;
+  min-height: 250px !important;
 /*  padding-top: 20px;
   display: inline;
   vertical-align: bottom;
@@ -41,11 +46,19 @@
   list-style: none;*/
 }
 
+.image {
+  max-height: 180px;
+}
+
 .feedback-correct {
   color: green;
 }
 
 .feedback-incorrect {
   color: red;
+}
+
+.tracking {
+  font-size: 40px;
 }
 

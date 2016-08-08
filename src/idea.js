@@ -1,8 +1,6 @@
-'use strict';
-
 const contents = [{
   question: 'Which one of these guys is NOT from Finland?',
-  answers: [{answer: ['picture of Santa Claus'], feedback: 'Really? Don\'t you know this?', lie: false}, {answer: ['picture of Pippi Longstockings'], feedback: 'You\'re right. Pippi is from Sweden.', lie: true}, {answer: ['picture of Moomin'], feedback: 'Nope! Moomin is from Finland.', lie: false}]
+  answers: [{image: 'https://upload.wikimedia.org/wikipedia/commons/4/49/Jonathan_G_Meath_portrays_Santa_Claus.jpg', feedback: 'Well, okay the other Nordic countries might claim otherwise, but everyone should know that Korvatunturi, Finland, has long been known as Santa\'s true home. There are two theme parks, Santa Claus Village and Santa Park near Rovaniemi in the north of Finland.', lie: false}, {image: 'http://dty8d8u6se0an.cloudfront.net/media/image/thumbnail/Pippi-Longstocking1_1440x1100.jpg', feedback: 'You\'re right. Pippi is from Sweden.', lie: true}, {image: 'https://pbs.twimg.com/profile_images/631800387016626176/P5jbtPH5.png', feedback: 'Nope! Moomin is from Finland.', lie: false}]
 },  {
   question: 'Which of these random facts is actually not true for Finland?',
   answers: [{answer: 'Women in Finland may go topless in public, providing it is not being used as a business.', feedback: 'Yeah, haha, this is New York!', lie: true}, {answer: 'A Finnish pizza chain once won the prize for best pizza at the New York Pizza Show, beating even the Italians.', feedback: 'Nope, this is true! The winning pizza was famously called "Pizza Berlusconi", as a revenge to the former Italian prime minister\'s public criticism of Finnish food.', lie: false}, {answer: 'Finns are the biggest coffee drinkers in the world.', feedback: 'No, this is true. Finland is number one, followed by Norway, The Netherlands, and Slovenia, according to a study from 2013.', lie: false}]

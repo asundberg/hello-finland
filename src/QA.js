@@ -1,21 +1,27 @@
 import React, { Component } from 'react';
-import './App.css';
 import contents from './idea';
 import Question from './Question';
 import Answer from './Answer';
+import Timer from './Timer';
+import Scoreboard from './Scoreboard';
 
 class QA extends Component {
   constructor () {
     super();
-    this.state = {
+    this.state = this.resetState();
+  }
+  resetState () {
+    return {
       currentQuObj: contents[0],
-      nextButton: 'SKIP!'
-    }
+      nextButton: 'SKIP!',
+      timeCount: 500,
+      score: 0
+    };
   }
   onAnswered (lie) {
-    // if (lie) {
-    //   score += 1;
-    // }
+    if (lie) {
+      this.setState({score: this.state.score + 1});
+    }
     this.setState({nextButton: 'NEXT!'});
   }
   onNext () {
@@ -25,6 +31,12 @@ class QA extends Component {
       nextButton: 'SKIP!'
     });
   }
+  onTimeOut () {
+    const response = confirm('Your time is up. Play again?');
+    if (response) {
+      this.setState(this.resetState());
+    }
+  }
   render () {
     return (
       <div>
@@ -33,7 +45,13 @@ class QA extends Component {
         </h2>
         <button onClick={this.onNext.bind(this)}>{this.state.nextButton}</button>
         <p></p>
-        {this.state.currentQuObj.answers.map(answerObj => <Answer text={answerObj.answer} lie={answerObj.lie} feedback={answerObj.feedback} key={answerObj.answer} callOnAnswered={this.onAnswered.bind(this)}></Answer>)}
+        <div>
+          {this.state.currentQuObj.answers.map(answerObj => <Answer text={answerObj.answer} image={answerObj.image} lie={answerObj.lie} feedback={answerObj.feedback} key={answerObj.answer || answerObj.image} callOnAnswered={this.onAnswered.bind(this)}></Answer>)}
+        </div>
+        <div className="tracking">
+          <Timer totalSeconds={this.state.timeCount} timeOut={this.onTimeOut.bind(this)}></Timer>
+          <Scoreboard yourScore={this.state.score} totalSoFar={contents.indexOf(this.state.currentQuObj) + 1}></Scoreboard>
+        </div>
       </div>
     );
   }
