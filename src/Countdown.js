@@ -26,9 +26,9 @@ class Countdown extends Component {
   }
   render () {
     return (
-      <div className="Timer">
+      <span className="Countdown">
         Countdown: {this.state.secondsRemaining} seconds
-      </div>
+      </span>
     );
   }
 }

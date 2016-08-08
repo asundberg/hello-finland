@@ -7,7 +7,7 @@
   background-size: cover;
   background-position: center;
   height: 250px;
-  padding-top: 14px;
+  padding-top: 10px;
   color: black;
 }
 
@@ -59,10 +59,7 @@
 }
 
 .tracking {
-  font-size: 30px;
-  position: fixed;
-  bottom: 0;
+  font-size: 25px;
   text-align: center;
-  background-color: #ddd;
 }
 

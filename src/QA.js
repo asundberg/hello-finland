@@ -40,6 +40,10 @@ class QA extends Component {
   render () {
     return (
       <div>
+        <div className="tracking">
+          <Countdown timeToEnd={this.state.endTime} timeOut={this.onTimeOut.bind(this)}></Countdown>
+          <Scoreboard yourScore={this.state.score} totalSoFar={contents.indexOf(this.state.currentQuObj) + 1}></Scoreboard>
+        </div>
         <h2 className="Game">
           <Question text={this.state.currentQuObj.question}></Question>
         </h2>
@@ -48,10 +52,6 @@ class QA extends Component {
         <div>
           {this.state.currentQuObj.answers.map(answerObj => <Answer text={answerObj.answer} image={answerObj.image} lie={answerObj.lie} feedback={answerObj.feedback} key={answerObj.answer || answerObj.image} callOnAnswered={this.onAnswered.bind(this)}></Answer>)}
         </div>
-        <footer className="tracking">
-          <Countdown timeToEnd={this.state.endTime} timeOut={this.onTimeOut.bind(this)}></Countdown>
-          <Scoreboard yourScore={this.state.score} totalSoFar={contents.indexOf(this.state.currentQuObj) + 1}></Scoreboard>
-        </footer>
       </div>
     );
   }

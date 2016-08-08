@@ -9,9 +9,9 @@ class Scoreboard extends Component {
   }
   render () {
     return (
-      <div className="Scoreboard">
+      <span className="Scoreboard">
         Your score: {this.props.yourScore}/{this.props.totalSoFar}
-      </div>
+      </span>
     );
   }
 }
