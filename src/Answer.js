@@ -30,7 +30,7 @@ class Answer extends Component {
         {answerText}
         {answerImg}
         <div>
-          <button onClick={this.onAnswerBtnClicked.bind(this)}>This is a lie</button>
+          <button className="answer-btn" disabled={this.props.buttonDisable} onClick={this.onAnswerBtnClicked.bind(this)}>This is a lie</button>
         </div>
         <div className={this.state.feedbackColor}>{this.state.feedbackText}</div>
       </div>

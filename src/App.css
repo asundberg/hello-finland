@@ -36,18 +36,14 @@
 .Answer {
   font-size: 17px;
   min-height: 250px !important;
-/*  padding-top: 20px;
-  display: inline;
-  vertical-align: bottom;
-  width: 33.33333%;
-  position: relative;
-  text-align: center;
-  box-sizing: border-box;
-  list-style: none;*/
 }
 
 .image {
   max-height: 180px;
+}
+
+.answer-btn[disabled] {
+  opacity: 0.6;
 }
 
 .feedback-correct {

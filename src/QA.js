@@ -15,20 +15,22 @@ class QA extends Component {
       currentQuObj: contents[0],
       nextButton: 'SKIP!',
       endTime: new Date().getTime() + 180000,
-      score: 0
+      score: 0,
+      disableAll: false
     };
   }
   onAnswered (lie) {
     if (lie) {
       this.setState({score: this.state.score + 1});
     }
-    this.setState({nextButton: 'NEXT!'});
+    this.setState({nextButton: 'NEXT!', disableAll: true});
   }
   onNext () {
     const currentIndex = contents.indexOf(this.state.currentQuObj) + 1;
     this.setState({
       currentQuObj: contents[currentIndex],
-      nextButton: 'SKIP!'
+      nextButton: 'SKIP!',
+      disableAll: false
     });
   }
   onTimeOut () {
@@ -50,7 +52,7 @@ class QA extends Component {
         <button onClick={this.onNext.bind(this)}>{this.state.nextButton}</button>
         <p></p>
         <div>
-          {this.state.currentQuObj.answers.map(answerObj => <Answer text={answerObj.answer} image={answerObj.image} lie={answerObj.lie} feedback={answerObj.feedback} key={answerObj.answer || answerObj.image} callOnAnswered={this.onAnswered.bind(this)}></Answer>)}
+          {this.state.currentQuObj.answers.map(answerObj => <Answer text={answerObj.answer} image={answerObj.image} lie={answerObj.lie} feedback={answerObj.feedback} key={answerObj.answer || answerObj.image} callOnAnswered={this.onAnswered.bind(this)} buttonDisable={this.state.disableAll}></Answer>)}
         </div>
       </div>
     );
