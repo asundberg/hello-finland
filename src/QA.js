@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import contents from './idea';
 import Question from './Question';
 import Answer from './Answer';
-import Timer from './Timer';
+import Countdown from './Timer';
 import Scoreboard from './Scoreboard';
 
 class QA extends Component {
@@ -48,10 +48,10 @@ class QA extends Component {
         <div>
           {this.state.currentQuObj.answers.map(answerObj => <Answer text={answerObj.answer} image={answerObj.image} lie={answerObj.lie} feedback={answerObj.feedback} key={answerObj.answer || answerObj.image} callOnAnswered={this.onAnswered.bind(this)}></Answer>)}
         </div>
-        <div className="tracking">
-          <Timer timeToEnd={this.state.endTime} timeOut={this.onTimeOut.bind(this)}></Timer>
+        <footer className="tracking">
+          <Countdown timeToEnd={this.state.endTime} timeOut={this.onTimeOut.bind(this)}></Countdown>
           <Scoreboard yourScore={this.state.score} totalSoFar={contents.indexOf(this.state.currentQuObj) + 1}></Scoreboard>
-        </div>
+        </footer>
       </div>
     );
   }

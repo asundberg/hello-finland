@@ -4,7 +4,7 @@
 
 import React, { Component } from 'react';
 
-class Timer extends Component {
+class Countdown extends Component {
   constructor (props) {
     super(props);
     this.state = {
@@ -33,7 +33,7 @@ class Timer extends Component {
   }
 }
 
-export default Timer;
+export default Countdown;
 
 
 
