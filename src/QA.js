@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import contents from './idea';
 import Question from './Question';
 import Answer from './Answer';
-import Countdown from './Timer';
+import Countdown from './Countdown';
 import Scoreboard from './Scoreboard';
 
 class QA extends Component {
