@@ -24,6 +24,10 @@
   color: red;
 }
 
+.reading {
+  margin-top: 230px;
+}
+
 .Game {
   font-size: large;
   padding-top: 20px;
