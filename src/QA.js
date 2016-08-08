@@ -14,7 +14,7 @@ class QA extends Component {
     return {
       currentQuObj: contents[0],
       nextButton: 'SKIP!',
-      endTime: new Date().getTime() + 250000,
+      endTime: new Date().getTime() + 300000,
       score: 0,
       disableAll: false
     };
