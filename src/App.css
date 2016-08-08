@@ -12,7 +12,7 @@
 }
 
 .tagline {
-  font-size: 20px;
+  font-size: 23px;
 }
 
 .App-intro {
@@ -57,5 +57,14 @@
 .tracking {
   font-size: 25px;
   text-align: center;
+  color: blue;
+}
+
+.Countdown {
+  margin-right: 50px;
+}
+
+.Scoreboard {
+  margin-right: 50px;
 }
 

@@ -14,7 +14,7 @@ class QA extends Component {
     return {
       currentQuObj: contents[0],
       nextButton: 'SKIP!',
-      endTime: new Date().getTime() + 180000,
+      endTime: new Date().getTime() + 250000,
       score: 0,
       disableAll: false
     };
@@ -34,7 +34,7 @@ class QA extends Component {
     });
   }
   onTimeOut () {
-    const response = confirm('Your time is up. Play again?');
+    const response = confirm('Your time is up and you got ' + this.state.score + ' points out of 14. Play again?');
     if (response) {
       this.setState(this.resetState());
     }

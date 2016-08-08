@@ -10,7 +10,7 @@ class Scoreboard extends Component {
   render () {
     return (
       <span className="Scoreboard">
-        Your score: {this.props.yourScore}/{this.props.totalSoFar}
+          YOUR SCORE: {this.props.yourScore}/{this.props.totalSoFar} (14 questions total)
       </span>
     );
   }
