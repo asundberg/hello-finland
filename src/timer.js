@@ -8,15 +8,21 @@ class Timer extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      secondsRemaining: Number(this.props.totalSeconds)
+      secondsRemaining: this.calculateSecondsRemaining()
     }
     const intervalId = setInterval(() => {
-      this.setState({secondsRemaining: this.state.secondsRemaining - 1});
-      if (this.state.secondsRemaining === 0) {
-        clearInterval(intervalId);
+      const timeLeft = this.calculateSecondsRemaining();
+      if (timeLeft > 0) {
+        this.setState({secondsRemaining: timeLeft});
+      } else if (timeLeft === 0) {
+        this.setState({secondsRemaining: timeLeft});
         this.props.timeOut();
       }
     }, 1000);
+  }
+  calculateSecondsRemaining () {
+    const now = new Date().getTime();
+    return Math.round((this.props.timeToEnd - now) / 1000);
   }
   render () {
     return (

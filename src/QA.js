@@ -14,7 +14,7 @@ class QA extends Component {
     return {
       currentQuObj: contents[0],
       nextButton: 'SKIP!',
-      timeCount: 500,
+      endTime: new Date().getTime() + 180000,
       score: 0
     };
   }
@@ -49,7 +49,7 @@ class QA extends Component {
           {this.state.currentQuObj.answers.map(answerObj => <Answer text={answerObj.answer} image={answerObj.image} lie={answerObj.lie} feedback={answerObj.feedback} key={answerObj.answer || answerObj.image} callOnAnswered={this.onAnswered.bind(this)}></Answer>)}
         </div>
         <div className="tracking">
-          <Timer totalSeconds={this.state.timeCount} timeOut={this.onTimeOut.bind(this)}></Timer>
+          <Timer timeToEnd={this.state.endTime} timeOut={this.onTimeOut.bind(this)}></Timer>
           <Scoreboard yourScore={this.state.score} totalSoFar={contents.indexOf(this.state.currentQuObj) + 1}></Scoreboard>
         </div>
       </div>
