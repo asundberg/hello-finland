@@ -14,7 +14,7 @@ class QA extends Component {
     return {
       currentQuObj: contents[0],
       nextButton: 'SKIP!',
-      endTime: new Date().getTime() + 300000,
+      endTime: new Date().getTime() + 380000,
       score: 0,
       disableAll: false
     };
@@ -27,16 +27,33 @@ class QA extends Component {
   }
   onNext () {
     const currentIndex = contents.indexOf(this.state.currentQuObj) + 1;
-    this.setState({
-      currentQuObj: contents[currentIndex],
-      nextButton: 'SKIP!',
-      disableAll: false
-    });
+    if (currentIndex < contents.length) {
+      this.setState({
+        currentQuObj: contents[currentIndex],
+        nextButton: 'SKIP!',
+        disableAll: false
+      });
+    } else {
+      const response = confirm('This is the end of the game. Congratulations, you got ' + this.state.score + ' points out of 14. Play again?');
+      if (response) {
+        this.setState(this.resetState());
+      } else {
+        this.setState({
+          endTime: null,
+          disableAll: true
+        })
+      }
+    }
   }
   onTimeOut () {
     const response = confirm('Your time is up and you got ' + this.state.score + ' points out of 14. Play again?');
     if (response) {
       this.setState(this.resetState());
+    } else {
+      this.setState({
+        endTime: null,
+        disableAll: true
+      })
     }
   }
   render () {
